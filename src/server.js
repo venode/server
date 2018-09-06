@@ -1,6 +1,6 @@
 import express from 'express';
 import osho from './osho';
-import config, { PORT } from './osho/config';
+import config, { PORT } from './config';
 
 const app = express();
 
