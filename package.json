@@ -4,11 +4,14 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "babel-watch src/server",
+    "dev": "concurrently \"npm:babel\" \"npm:thor:test\"",
+    "babel": "babel-watch src/server",
     "build": "babel -d ./dist ./src -s",
     "eslint:fix": "eslint --fix .",
     "precommit": "npm run eslint:fix",
-    "prepush": "npm run eslint:fix"
+    "prepush": "npm run eslint:fix",
+    "thor:test": "~/Go/src/thor/bin/thor -network test",
+    "thor:main": "~/Go/src/thor/bin/thor -network main"
   },
   "author": "Amazingandyyy <amazingandyyy@gmail.com> (Andy Chen)",
   "license": "MIT",
@@ -27,6 +30,8 @@
     "husky": "^0.14.3"
   },
   "dependencies": {
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.4",
     "express": "^4.16.3"
   }
 }
