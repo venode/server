@@ -4,7 +4,7 @@ import config from './config';
 const authGate = (req, res, next) => {
   if (!req.params.token) return res.send('no token');
   return next();
-}
+};
 
 const testnet = (req, res) => {
   const apiRoute = req.originalUrl.replace(req.baseUrl, '');
